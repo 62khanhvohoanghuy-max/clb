@@ -1,0 +1,127 @@
+.navbar{
+    width: 88%;
+    position: relative;
+    left: 180px;
+    bottom: 40px;
+
+}
+.navbar .logo{
+    display: none;
+}
+.navbar img{
+    width: 100px;
+    right: 80px;
+    top: 50px;
+    position: relative;
+    display: inline;
+}
+.navbar ul p{
+    display: flex;
+    justify-content: center;
+    display: inline;
+    padding: 20px;
+    position: relative;
+    left: 200px;
+}
+.navbar ul p a{
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.navbar ul p a:hover {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
+.artists{
+    position: relative;
+}
+.artists img{
+    width: 150px;
+    border-radius: 100%;
+    position: relative;
+    display: inline;
+    padding-left: 40px;
+    padding-top: 50px;
+}
+.tag p{
+    position: relative;
+    font-size: 25px;
+    bottom: 1040px ;
+    padding-top: 50px;
+    padding-left: 20px;
+    right: 20px;
+    display: inline-block;
+}
+.tag1 p{
+    display: none;
+}
+.footer p {
+    font-size: large;
+    position: relative;
+}
+.footer a img{
+    width: 130px;
+    position: relative;
+}
+.footer1{
+    display: none;
+}
+@media (min-width: 320px) and (max-width:900px){
+    .navbar img{
+        display: none;
+    }
+    .navbar .logo{
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        left: -200px;
+    }
+    .navbar{
+        position: relative;
+        padding: 10px;
+    }
+    .navbar ul p{
+        display: flex;
+        align-items: flex-start;
+        position: absolute;
+        left: -180px;
+        top: 100px;
+        font-size: small;
+    }
+    .artists img{
+        display: flex;
+        flex-direction: column;
+    }
+    .tag p{
+        display: none;
+    }
+    .tag1 p{
+        display: flex;
+        font-size: 20px;
+        position: absolute;
+    }
+    .footer{
+        display: none;
+    }
+    .footer1{
+        display: block;
+        position: absolute;
+    }
+    .footer1{
+        position: relative;
+        top: 500px;
+        right: 50px;
+    }
+    .footer1 a{
+        position: relative;
+        display: flex;
+        bottom: 1100px;
+    }
+    .footer1 a img{
+        width: 90px;
+    }
+}
+    

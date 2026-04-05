@@ -1,0 +1,228 @@
+
+.navbar{
+    width: 88%;
+    position: relative;
+    left: 180px;
+    bottom: 40px;
+}
+.navbar .logo{
+    display: none;
+}
+.navbar img{
+    width: 100px;
+    right: 80px;
+    top: 50px;
+    position: relative;
+    display: inline;
+}
+.navbar ul p{
+    display: flex;
+    justify-content: center;
+    display: inline;
+    padding: 20px;
+    position: relative;
+    left: 200px;
+}
+.navbar ul p a{
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+
+}
+.navbar ul p a:hover {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
+.content img{
+    width: 150px;
+    display: flex;
+    display: inline;
+    left: -50px;
+    padding: 30px;
+    justify-content: center;
+    position: relative;
+    border-radius: 20%;
+    left: 100px;
+}
+.Daily p{
+    display: flex;
+    position: relative;
+    display: inline;
+    padding: 55px;
+    font-size: 20px;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    bottom: 20px;
+    left: 100px;
+    bottom: 220px;
+}
+.Nametag p{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    display: inline;
+    right: 15px;
+    text-decoration: none;
+    color: black;
+    left: 138px;
+    bottom: 55px;
+}
+.under.today{
+    position: relative;
+    bottom: 100px;
+    display: inline;
+}
+.under.today h2{
+    padding-top: 50px;
+    position: relative;
+    top: 50px;
+}
+.under.today img{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    display: inline;
+}
+.under.today p{
+    position: relative;
+    display: inline;
+    top: 10px;
+    display: flex;
+    justify-content: center;  
+    left: 50px;
+}
+.Ari a p{
+    text-decoration: none;
+    color: black;
+    position: relative;
+    left: 150px;
+    bottom: 100px;
+}
+.Ari h2{
+    position: relative;
+    left: 120px;
+}
+.Ari1{
+    display: none;
+}
+.footer p {
+    font-size: large;
+    position: relative;
+    left: 150px;
+}
+.footer a img{
+    width: 130px;
+    position: relative;
+}
+.footer1{
+    display: none;
+}
+@media (min-width: 320px) and (max-width:900px){
+    .navbar img{
+        display: none;
+    }
+    .navbar .logo{
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        left: -200px;
+        width: 50px;
+    }
+    .navbar{
+        position: relative;
+        padding: 10px;
+    }
+    .navbar ul p{
+        display: flex;
+        align-items: flex-start;
+        position: absolute;
+        left: -180px;
+        top: 100px;
+        font-size: small;
+    }
+    .content{
+        position: relative;
+    }
+    .content img{
+        width: 100px;
+        position: absolute;
+        align-items: center;
+        bottom: 300px;
+        right: 100px;
+        display: flex;
+        align-items:start;
+        flex-direction: column;
+        padding-top: 100px;
+    }
+    .Daily{
+        position: relative;
+        bottom: 640px;
+        right: 90px;
+        text-decoration: none;
+        color: black;
+    }
+    .Daily p{
+        position: absolute;
+        align-items: center;
+        display: flex;
+        align-items: start;
+        text-decoration: none;
+        color: black;
+    }
+
+    .under .today{
+        position: absolute;
+        top: 850px;
+    }
+    .under .today p{
+        position: relative;
+        bottom: 770px;
+        padding-bottom: 20px;
+    }
+    .Ari{
+       display: none;
+    }
+    .Ari1{
+        display: block;
+        text-decoration: none;
+        color: black;
+        
+    }
+    .under .today h2{
+        position: relative;
+        right: 50px;
+        bottom: 1px;
+    }
+    .under .today img{
+        padding-bottom: 40px;
+        position: relative;
+        right: 50px;
+    }
+    .Nametag{
+        display: none;
+    }
+    .footer{
+        display: none;
+    }
+    .footer1{
+        display: block;
+        position: absolute;
+    }
+    .footer1{
+        position: relative;
+        top: 500px;
+        right: 50px;
+    }
+    .footer1 a{
+        position: relative;
+        display: flex;
+        bottom: 1100px;
+    }
+    .footer1 a img{
+        width: 90px;
+    }
+}

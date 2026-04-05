@@ -1,0 +1,37 @@
+.navbar{
+    width: 88%;
+    position: relative;
+    left: 180px;
+    bottom: 40px;
+}
+.navbar .logo{
+    display: none;
+}
+.navbar img{
+    width: 100px;
+    right: 80px;
+    top: 50px;
+    position: relative;
+    display: inline;
+}
+.navbar ul p{
+    display: flex;
+    justify-content: center;
+    display: inline;
+    padding: 20px;
+    position: relative;
+    left: 200px;
+}
+.navbar ul p a{
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+
+}
+.navbar ul p a:hover {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
