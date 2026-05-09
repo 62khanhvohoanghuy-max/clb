@@ -1,0 +1,197 @@
+/* ===== HUB PAGE STYLES ===== */
+
+/* Hero */
+.hub-hero {
+  background: linear-gradient(135deg, var(--midnight) 0%, #2d1b5e 100%);
+  padding: 160px 40px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hub-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(244,114,182,0.22), transparent 55%),
+              radial-gradient(ellipse at 20% 80%, rgba(167,139,250,0.22), transparent 50%);
+}
+.hub-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.hub-hero-content h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: white;
+  margin: 16px 0 20px;
+  line-height: 1.1;
+}
+.hub-hero-content p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 480px;
+  margin: 0 auto;
+}
+.hub-hero .section-label {
+  color: var(--gold-light);
+  background: rgba(201,168,76,0.2);
+}
+
+/* Filter Bar */
+.filter-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+}
+.filter-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  gap: 10px;
+}
+.filter-btn {
+  padding: 8px 22px;
+  border: 2px solid var(--border);
+  background: transparent;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--slate);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.filter-btn:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-dark);
+}
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  border-color: transparent;
+  color: white;
+  box-shadow: var(--shadow-pink);
+}
+
+/* Hub Grid */
+.hub-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 100px;
+}
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.hub-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+.hub-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold-light);
+}
+.hub-card .img-wrap {
+  overflow: hidden;
+  height: 240px;
+}
+.hub-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+.hub-card:hover img {
+  transform: scale(1.06);
+}
+.hub-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hub-card-body .tag { margin-bottom: 12px; }
+.hub-card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--midnight);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.hub-card-body p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hub-card-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hub-event-meta {
+  font-size: 0.82rem;
+  color: var(--slate);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hub-read-more {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+.hub-read-more:hover { gap: 8px; }
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--muted);
+}
+.empty-icon { font-size: 3rem; margin-bottom: 16px; }
+.empty-state p { font-size: 1.05rem; }
+
+/* Skeleton */
+.skeleton-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 1024px) {
+  .hub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .hub-main { padding: 40px 20px 60px; }
+  .hub-grid { grid-template-columns: 1fr; }
+  .filter-inner { padding: 12px 20px; overflow-x: auto; }
+  .hub-hero { padding: 140px 20px 80px; }
+}

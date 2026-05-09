@@ -1,29 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        input {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập | NTH English Club</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div style="width:300px; text-align: center; margin: 100px auto;">
-        <h1>Login</h1>
-        <img src="data:image/webp;base64,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" style="width:70%";>
-        <form>
-        <label for="email"></label><br>
-        <input type="email" id="email" placeholder="your email here"><br><br>
-        <label for="password"></label><br>
-        <input type="password" id="password" placeholder="your password here">
-        <br><br> 
-        <a href="spolist.html"><button id="submit">SUBMIT</button></a>
-    </form>
+
+  <div class="login-page">
+    <!-- Left Panel -->
+    <div class="login-left">
+      <div class="login-left-content">
+        <a href="index.html" class="nav-logo" style="color:white; margin-bottom:48px;">
+          <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="Logo">
+          NTH EC
+        </a>
+        <div class="left-hero">
+          <h2>Chào mừng trở lại ✨</h2>
+          <p>Đăng nhập để truy cập vào trang thành viên và quản lý câu lạc bộ NTH English Club.</p>
+        </div>
+        <div class="left-quote">
+          <div class="quote-text">"The sun will shine on us again."</div>
+          <div class="quote-attr">— Taylor Swift</div>
+        </div>
+        <div class="left-footer">
+          <a href="index.html">← Về trang chủ</a>
+        </div>
+      </div>
+      <!-- Decorative orbs -->
+      <div class="login-orb orb-1"></div>
+      <div class="login-orb orb-2"></div>
     </div>
-    <script src="login.js"></script>
+
+    <!-- Right Panel - Form -->
+    <div class="login-right">
+      <div class="login-form-wrap">
+        <div class="form-header">
+          <h1>Đăng nhập</h1>
+          <p>Nhập thông tin tài khoản của bạn bên dưới</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="username">Tên đăng nhập</label>
+          <input class="form-input" type="text" id="username" placeholder="Nhập tên đăng nhập..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Mật khẩu</label>
+          <div class="password-wrap">
+            <input class="form-input" type="password" id="password" placeholder="Nhập mật khẩu...">
+            <button class="toggle-pw" id="toggle-pw" type="button" aria-label="Hiện mật khẩu">👁</button>
+          </div>
+        </div>
+
+        <div id="login-error" class="login-error" style="display:none;"></div>
+
+        <button class="btn-login-submit" id="login-btn" onclick="login()">
+          <span id="login-text">Đăng nhập</span>
+          <span id="login-spinner" style="display:none;">⏳</span>
+        </button>
+
+        <div class="login-info-box">
+          <div class="info-role">
+            <span class="role-badge admin">Admin</span>
+            <span>Chủ nhiệm CLB – Toàn quyền quản lý</span>
+          </div>
+          <div class="info-role">
+            <span class="role-badge member">Member</span>
+            <span>Thành viên – Xem thông tin cá nhân</span>
+          </div>
+        </div>
+
+        <p class="login-back"><a href="index.html">← Quay lại trang chủ</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
 </body>
 </html>

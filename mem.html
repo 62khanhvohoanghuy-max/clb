@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh sách thành viên | NTH EC</title>
+
+  <style>
+    body {
+      background: #f5f6fa;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .members-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 16px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .search-box {
+      margin: 16px 0;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background: #fafafa;
+    }
+
+    .role-tag {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    .admin {
+      background: #ddd;
+    }
+
+    .member {
+      background: #ffe7a3;
+    }
+
+    @media (max-width: 600px) {
+      .members-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>👥 Danh sách thành viên</h1>
+  <div class="subtitle">Chỉ xem thông tin</div>
+
+  <!-- Stats -->
+  <div class="members-stats">
+    <div class="stat-card">👥 Tổng: <b id="total-members">—</b></div>
+    <div class="stat-card">👑 Admin: <b id="count-admin">—</b></div>
+    <div class="stat-card">🌟 Member: <b id="count-member">—</b></div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="🔍 Tìm kiếm..." oninput="filterTable()">
+  </div>
+
+  <!-- Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Vai trò</th>
+      </tr>
+    </thead>
+    <tbody id="member-list">
+      <tr><td colspan="4">Đang tải...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+let members = [];
+
+// Load data (API hoặc fake data)
+async function loadMembers() {
+  try {
+    const res = await fetch("https://68aac601909a5835049cf632.mockapi.io/login"); // đổi API nếu cần
+    members = await res.json();
+  } catch {
+    // fallback nếu chưa có backend
+    members = [
+      {name: "Nguyễn Văn A", email: "a@gmail.com", role: "admin"},
+      {name: "Trần Thị B", email: "b@gmail.com", role: "member"},
+      {name: "Lê Văn C", email: "c@gmail.com", role: "member"}
+    ];
+  }
+
+  renderTable(members);
+}
+
+function renderTable(data) {
+  const list = document.getElementById("member-list");
+  list.innerHTML = "";
+
+  let admin = 0, member = 0;
+
+  data.forEach((m, i) => {
+    if (m.role === "admin") admin++;
+    else member++;
+
+    list.innerHTML += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${m.username}</td>
+        <td>${m.email}</td>
+        <td><span class="role-tag ${m.role}">${m.role}</span></td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("total-members").innerText = data.length;
+  document.getElementById("count-admin").innerText = admin;
+  document.getElementById("count-member").innerText = member;
+}
+
+function filterTable() {
+  const keyword = document.getElementById("search-input").value.toLowerCase();
+
+  const filtered = members.filter(m =>
+    m.name.toLowerCase().includes(keyword) ||
+    m.email.toLowerCase().includes(keyword)
+  );
+
+  renderTable(filtered);
+}
+
+loadMembers();
+</script>
+
+</body>
+</html>

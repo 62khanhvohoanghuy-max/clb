@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NTH EC Hub – Tổng hợp tin tức và sự kiện của Câu lạc bộ Tiếng Anh Nguyễn Thượng Hiền">
+  <title>Tin tức &amp; Sự kiện | NTH English Club</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="NTH EC Logo">
+      NTH EC
+    </a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="hub.html" class="active">Tin tức &amp; Sự kiện</a></li>
+      <li><a href="index.html#about">Về chúng tôi</a></li>
+      <li><a href="index.html#join">Tham gia</a></li>
+      <li><a href="login.html" class="btn-login">Đăng nhập</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HUB HERO -->
+  <section class="hub-hero">
+    <div class="hub-hero-content">
+      <div class="section-label">NTH EC Hub</div>
+      <h1>Tin tức &amp; Sự kiện</h1>
+      <p>Cập nhật những khoảnh khắc đặc biệt và hoạt động sắp tới của NTH English Club</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all" id="filter-all">Tất cả</button>
+      <button class="filter-btn" data-filter="news" id="filter-news">📰 Tin tức</button>
+      <button class="filter-btn" data-filter="event" id="filter-event">🎉 Sự kiện</button>
+    </div>
+  </div>
+
+  <!-- HUB GRID -->
+  <main class="hub-main">
+    <div class="hub-grid" id="hub-grid">
+      <!-- Loading skeletons -->
+      <div class="hub-card skeleton-card">
+        <div class="skeleton" style="height:240px;"></div>
+        <div style="padding:24px;">
+          <div class="skeleton" style="height:14px; width:70px; margin-bottom:12px;"></div>
+          <div class="skeleton" style="height:20px; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:16px; width:80%;"></div>
+        </div>
+      </div>
+      <div class="hub-card skeleton-card">
+        <div class="skeleton" style="height:240px;"></div>
+        <div style="padding:24px;">
+          <div class="skeleton" style="height:14px; width:70px; margin-bottom:12px;"></div>
+          <div class="skeleton" style="height:20px; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:16px; width:80%;"></div>
+        </div>
+      </div>
+      <div class="hub-card skeleton-card">
+        <div class="skeleton" style="height:240px;"></div>
+        <div style="padding:24px;">
+          <div class="skeleton" style="height:14px; width:70px; margin-bottom:12px;"></div>
+          <div class="skeleton" style="height:20px; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:16px; width:80%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <div class="empty-icon">🔍</div>
+      <p>Không có nội dung nào trong danh mục này.</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:white; margin-bottom:16px;">
+          <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="Logo">
+          NTH English Club
+        </div>
+        <p>Câu lạc bộ Tiếng Anh<br>Trường THPT Nguyễn Thượng Hiền<br>TP. Hồ Chí Minh</p>
+      </div>
+      <div class="footer-col">
+        <h4>Trang</h4>
+        <a href="index.html">Trang chủ</a>
+        <a href="hub.html">Tin tức &amp; Sự kiện</a>
+        <a href="index.html#about">Về CLB</a>
+        <a href="login.html">Đăng nhập</a>
+      </div>
+      <div class="footer-col">
+        <h4>Theo dõi</h4>
+        <a href="https://instagram.com/NTH_EC" target="_blank">📸 Instagram</a>
+        <a href="https://facebook.com/NTHEnglishClub" target="_blank">📘 Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NTH English Club. All rights reserved.</span>
+      <span>Made with ❤️ by NTH EC</span>
+    </div>
+  </footer>
+
+  <script src="hub.js"></script>
+</body>
+</html>

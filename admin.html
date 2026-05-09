@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | NTH EC Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="Logo">
+      <div>
+        <div class="brand-name">NTH EC</div>
+        <div class="brand-role">Admin Panel</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-group-label">Quản lý</span>
+      <a href="admin.html" class="sidebar-link active" id="nav-dashboard">
+        <span class="link-icon">📊</span> Dashboard
+      </a>
+      <a href="members.html" class="sidebar-link" id="nav-members">
+        <span class="link-icon">👥</span> Quản lý thành viên
+      </a>
+      <a href="cms.html" class="sidebar-link" id="nav-cms">
+        <span class="link-icon">✍️</span> CMS – Nội dung
+      </a>
+      <span class="nav-group-label">Public</span>
+      <a href="index.html" class="sidebar-link">
+        <span class="link-icon">🏠</span> Trang chủ
+      </a>
+      <a href="hub.html" class="sidebar-link">
+        <span class="link-icon">📰</span> Tin tức &amp; Sự kiện
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="sidebar-logout">
+        <span>🚪</span> Đăng xuất
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <!-- Top Bar -->
+    <header class="dash-header">
+      <div class="dash-header-left">
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <div>
+          <h1 class="dash-title">Dashboard</h1>
+          <p class="dash-subtitle">Tổng quan câu lạc bộ NTH English Club</p>
+        </div>
+      </div>
+      <div class="dash-header-right">
+        <span class="admin-badge">👑 Admin</span>
+      </div>
+    </header>
+
+    <!-- Stats Cards -->
+    <section class="dash-stats">
+      <div class="stat-card primary">
+        <div class="stat-card-icon">👥</div>
+        <div class="stat-card-body">
+          <div class="stat-card-label">Tổng thành viên</div>
+          <div class="stat-card-value" id="total-members">—</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon">🏆</div>
+        <div class="stat-card-body">
+          <div class="stat-card-label">Năm thành lập</div>
+          <div class="stat-card-value" id="dash-founded">2008</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon">🕒</div>
+        <div class="stat-card-body">
+          <div class="stat-card-label">Giờ họp</div>
+          <div class="stat-card-value small" id="dash-meeting">13:30 to 17:00 Saturday</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon">📍</div>
+        <div class="stat-card-body">
+          <div class="stat-card-label">Địa điểm</div>
+          <div class="stat-card-value small" id="dash-location">Multimedia Room No.5</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Club Info Card -->
+    <div class="dash-grid">
+      <div class="dash-card info-card">
+        <div class="dash-card-header">
+          <h2>Thông tin câu lạc bộ</h2>
+          <span class="tag tag-gold">Mockapi Data</span>
+        </div>
+        <div class="info-rows" id="info-rows">
+          <div class="info-row"><span class="info-key">Tên CLB</span><span class="info-val" id="info-name">—</span></div>
+          <div class="info-row"><span class="info-key">Slogan</span><span class="info-val" id="info-slogan">—</span></div>
+          <div class="info-row"><span class="info-key">Email</span><span class="info-val" id="info-email">—</span></div>
+          <div class="info-row"><span class="info-key">Mô tả</span><span class="info-val" id="info-desc">—</span></div>
+        </div>
+      </div>
+
+      <!-- Recent News -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <h2>Tin tức gần đây</h2>
+          <a href="hub.html" class="dash-card-link">Xem tất cả →</a>
+        </div>
+        <div class="news-mini-list" id="news-mini-list">
+          <!-- JS render -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Events Table -->
+    <div class="dash-card" style="margin-top:24px;">
+      <div class="dash-card-header">
+        <h2>Sự kiện sắp tới</h2>
+        <a href="hub.html" class="dash-card-link">Xem tất cả →</a>
+      </div>
+      <div class="table-wrap">
+        <table class="dash-table" id="events-table">
+          <thead>
+            <tr>
+              <th>Sự kiện</th>
+              <th>Ngày</th>
+              <th>Thời gian</th>
+              <th>Địa điểm</th>
+            </tr>
+          </thead>
+          <tbody id="events-tbody">
+            <!-- JS render -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <h3>Thao tác nhanh</h3>
+      <div class="quick-actions-grid">
+        <a href="members.html" class="quick-btn">
+          <span>👥</span>
+          <span>Quản lý thành viên</span>
+        </a>
+        <a href="hub.html" class="quick-btn">
+          <span>📰</span>
+          <span>Xem Hub</span>
+        </a>
+        <a href="index.html" class="quick-btn">
+          <span>🏠</span>
+          <span>Trang chủ public</span>
+        </a>
+        <a href="login.html" class="quick-btn logout">
+          <span>🚪</span>
+          <span>Đăng xuất</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

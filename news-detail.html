@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Chi tiết Tin tức | NTH EC</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="Logo">
+      NTH EC
+    </a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="hub.html" class="active">Tin tức &amp; Sự kiện</a></li>
+      <li><a href="login.html" class="btn-login">Đăng nhập</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <div class="detail-hero" id="detail-hero">
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-title" id="detail-hero-title"></div>
+  </div>
+
+  <!-- CONTENT CARD -->
+  <div class="detail-wrap">
+    <article class="detail-card">
+      <div class="detail-meta-bar">
+        <span class="tag tag-rose">📰 Tin tức</span>
+        <span class="detail-date" id="detail-date"></span>
+      </div>
+      <h1 class="detail-title" id="detail-title"></h1>
+      <div class="detail-body" id="detail-body"></div>
+      <div class="detail-back">
+        <a href="hub.html" class="btn-secondary">← Quay lại Hub</a>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="detail-sidebar">
+      <div class="sidebar-widget">
+        <h3>Về NTH EC</h3>
+        <p>Câu lạc bộ Tiếng Anh trường THPT Nguyễn Thượng Hiền – Nơi tiếng Anh trở nên vui vẻ và gần gũi.</p>
+        <a href="index.html#about" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px;">Tìm hiểu thêm</a>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Sự kiện sắp tới</h3>
+        <a href="hub.html?filter=event" class="sidebar-link">🎉 Xem tất cả sự kiện →</a>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Theo dõi chúng tôi</h3>
+        <div class="sidebar-social">
+          <a href="https://instagram.com/NTH_EC" target="_blank">📸 Instagram</a>
+          <a href="https://www.facebook.com/nthenglishclub.page" target="_blank">📘 Facebook</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:white; margin-bottom:16px;">
+          <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="Logo">
+          NTH English Club
+        </div>
+        <p>Câu lạc bộ Tiếng Anh TP. Hồ Chí Minh</p>
+      </div>
+      <div class="footer-col">
+        <h4>Trang</h4>
+        <a href="index.html">Trang chủ</a>
+        <a href="hub.html">Tin tức &amp; Sự kiện</a>
+        <a href="login.html">Đăng nhập</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NTH English Club. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    const id = parseInt(new URLSearchParams(window.location.search).get('id')) || 0;
+
+    fetch("https://68aac601909a5835049cf632.mockapi.io/contents")
+      .then(res => res.json())
+      .then(data => {
+        const item = data[0].news[id];
+        if (!item) return;
+
+        document.getElementById("page-title").innerText = item.title + " | NTH EC";
+        document.getElementById("detail-hero").style.backgroundImage = `url('${item.image}')`;
+        document.getElementById("detail-hero-title").innerText = item.title;
+        document.getElementById("detail-title").innerText = item.title;
+        document.getElementById("detail-body").innerHTML = `<p>${item.content}</p>`;
+        document.getElementById("detail-date").innerText = "📅 " + new Date().toLocaleDateString('vi-VN') + " • NTH English Club";
+      })
+      .catch(err => console.error(err));
+
+    window.addEventListener("scroll", () => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20);
+    });
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("hamburger").classList.toggle("active");
+      document.getElementById("nav-menu").classList.toggle("open");
+    });
+  </script>
+</body>
+</html>

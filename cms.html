@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS – Quản lý nội dung | NTH EC</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="cms.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="654773868_1521252460001067_1502684645417108326_n.jpg" alt="Logo">
+      <div>
+        <div class="brand-name">NTH EC</div>
+        <div class="brand-role">Admin Panel</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-group-label">Quản lý</span>
+      <a href="admin.html" class="sidebar-link"><span class="link-icon">📊</span> Dashboard</a>
+      <a href="members.html" class="sidebar-link"><span class="link-icon">👥</span> Quản lý thành viên</a>
+      <a href="cms.html" class="sidebar-link active"><span class="link-icon">✍️</span> CMS – Nội dung</a>
+      <span class="nav-group-label">Public</span>
+      <a href="index.html" class="sidebar-link"><span class="link-icon">🏠</span> Trang chủ</a>
+      <a href="hub.html" class="sidebar-link"><span class="link-icon">📰</span> Tin tức &amp; Sự kiện</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="sidebar-logout"><span>🚪</span> Đăng xuất</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dash-main">
+    <header class="dash-header">
+      <div class="dash-header-left">
+        <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+        <div>
+          <h1 class="dash-title">CMS – Quản lý nội dung</h1>
+          <p class="dash-subtitle">Thêm, chỉnh sửa và xóa bài viết, sự kiện</p>
+        </div>
+      </div>
+      <div class="dash-header-right">
+        <span class="admin-badge">✍️ Editor</span>
+      </div>
+    </header>
+
+    <!-- TAB BAR -->
+    <div class="cms-tabs">
+      <button class="cms-tab active" data-tab="news" id="tab-news">📰 Tin tức</button>
+      <button class="cms-tab" data-tab="events" id="tab-events">🎉 Sự kiện</button>
+    </div>
+
+    <!-- ======== NEWS PANEL ======== -->
+    <div class="cms-panel" id="panel-news">
+
+      <!-- Add / Edit Form -->
+      <div class="dash-card cms-form-card">
+        <div class="dash-card-header">
+          <h2 id="news-form-title">✏️ Thêm tin tức mới</h2>
+          <button class="cms-cancel-btn" id="news-cancel-btn" style="display:none;" onclick="cancelNewsEdit()">✕ Hủy chỉnh sửa</button>
+        </div>
+        <div class="cms-form">
+          <input type="hidden" id="news-edit-index" value="-1">
+          <div class="cms-form-row">
+            <div class="form-group" style="flex:2;">
+              <label class="form-label">Tiêu đề *</label>
+              <input class="form-input" type="text" id="news-title" placeholder="Tiêu đề bài viết...">
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">URL ảnh bìa</label>
+              <input class="form-input" type="url" id="news-image" placeholder="https://...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nội dung *</label>
+            <textarea class="form-input" id="news-content" rows="5" placeholder="Viết nội dung bài viết tại đây..."></textarea>
+          </div>
+          <div class="cms-preview-wrap" id="news-img-preview" style="display:none;">
+            <img id="news-preview-img" src="" alt="Preview">
+          </div>
+          <div class="cms-form-actions">
+            <button class="btn-primary" onclick="saveNews()">
+              <span id="news-save-text">+ Thêm bài viết</span>
+              <span id="news-save-spinner" style="display:none;">⏳</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- News List -->
+      <div class="dash-card" style="margin-top:24px;">
+        <div class="dash-card-header">
+          <h2>Danh sách tin tức <span class="cms-count" id="news-count">0</span></h2>
+          <button class="cms-refresh-btn" onclick="loadData()">🔄 Tải lại</button>
+        </div>
+        <div class="cms-list" id="news-list">
+          <div class="cms-loading">Đang tải...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== EVENTS PANEL ======== -->
+    <div class="cms-panel" id="panel-events" style="display:none;">
+
+      <!-- Add / Edit Form -->
+      <div class="dash-card cms-form-card">
+        <div class="dash-card-header">
+          <h2 id="event-form-title">✏️ Thêm sự kiện mới</h2>
+          <button class="cms-cancel-btn" id="event-cancel-btn" style="display:none;" onclick="cancelEventEdit()">✕ Hủy chỉnh sửa</button>
+        </div>
+        <div class="cms-form">
+          <input type="hidden" id="event-edit-index" value="-1">
+          <div class="cms-form-row">
+            <div class="form-group" style="flex:2;">
+              <label class="form-label">Tên sự kiện *</label>
+              <input class="form-input" type="text" id="event-title" placeholder="Tên sự kiện...">
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Ngày (dd/mm/yyyy)</label>
+              <input class="form-input" type="text" id="event-date" placeholder="25/05/2026">
+            </div>
+          </div>
+          <div class="cms-form-row">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Thời gian</label>
+              <input class="form-input" type="text" id="event-time" placeholder="8:00 - 11:00">
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Địa điểm</label>
+              <input class="form-input" type="text" id="event-location" placeholder="Hội trường A, Phòng 201...">
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">URL ảnh bìa</label>
+              <input class="form-input" type="url" id="event-image" placeholder="https://...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mô tả *</label>
+            <textarea class="form-input" id="event-description" rows="4" placeholder="Mô tả ngắn về sự kiện..."></textarea>
+          </div>
+          <div class="cms-form-actions">
+            <button class="btn-primary" onclick="saveEvent()">
+              <span id="event-save-text">+ Thêm sự kiện</span>
+              <span id="event-save-spinner" style="display:none;">⏳</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events List -->
+      <div class="dash-card" style="margin-top:24px;">
+        <div class="dash-card-header">
+          <h2>Danh sách sự kiện <span class="cms-count" id="events-count">0</span></h2>
+          <button class="cms-refresh-btn" onclick="loadData()">🔄 Tải lại</button>
+        </div>
+        <div class="cms-list" id="events-list">
+          <div class="cms-loading">Đang tải...</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Delete Confirm Modal -->
+  <div class="modal-overlay" id="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-icon">🗑️</div>
+      <h3>Xác nhận xóa</h3>
+      <p id="modal-text">Bạn có chắc chắn muốn xóa mục này không?</p>
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeModal()">Hủy</button>
+        <button class="btn-danger" id="modal-confirm-btn">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script src="cms.js"></script>
+</body>
+</html>
